@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@300&display=swap');
+
+html {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  text-align: center;
+}
+
+input {
+  font-family: "Poppins", sans-serif;
+  margin: 10px;
+  line-height: 2em;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 200px;
+  text-align: center;
+}
+
+td {
+  width: 100px;
+  height: 100px;
+}
+
+.table-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.current-player,
+.players-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  padding: 10px;
+}
+
+.main-table {
+  width: 20%;
+  height: 20%;
+  border-collapse: collapse;
+}
+
+.cell {
+  border: 2px solid black;
+  padding: 10px;
+  border-right: 0;
+  text-align: center;
+  font-family: 'Shantell Sans', cursive;
+  font-size: larger;
+  font-weight: bold;
+  transition: opacity 0.3s ease-in-out; 
+  opacity: 0;
+}
+
+.cell.has-text {
+  opacity: 1;
+}
+
+.left-cell {
+  border-left: 0;
+}
+
+.medium-top {
+  border-top: 0;
+}
+
+.medium-bottom {
+  border-bottom: 0;
+}
+
+.cell-played {
+  pointer-events: none;
+}
