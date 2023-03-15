@@ -12,12 +12,13 @@ To run the project locally, follow these steps:
 
 2. Install the project dependencies:
 
-cd WebPackTicTacToe-Felipe
-npm install
+    cd WebPackTicTacToe-Felipe
+    
+    npm install
 
 3. Start the development server:
 
-npm start or npm run dev
+    npm start or npm run dev
 
 ## GitHub Pages
 
