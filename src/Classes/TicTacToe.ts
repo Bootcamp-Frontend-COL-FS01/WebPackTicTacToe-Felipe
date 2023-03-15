@@ -1,9 +1,17 @@
+import { Players } from './../Interfaces/types';
+
 export class TicTacToe {
+  private board: HTMLElement;
+  private playersForm: HTMLFormElement;
+  private currentPlayer: HTMLElement;
+  private players: Players;
+  private currentValue: string;
+
   constructor() {
     // Getting elements from html
-    this.board = document.getElementById("board");
-    this.playersForm = document.getElementById("players-form");
-    this.currentPlayer = document.getElementById("current-player");
+    this.board = document.getElementById("board")!;
+    this.playersForm = document.getElementById("players-form")! as HTMLFormElement;
+    this.currentPlayer = document.getElementById("current-player")!;
 
     this.players = {
       player1: "Player 1",
@@ -23,14 +31,14 @@ export class TicTacToe {
     this.updateCurrentPlayer();
   }
 
-  handleClick(e) {
+  private handleClick(e: MouseEvent) {
     //Accept only clicks on board
-    if (e.target.id !== "board") {
-      e.target.textContent = this.currentValue;
+    if ((<HTMLElement>e.target).id !== "board") {
+      (<HTMLElement>e.target).textContent = this.currentValue;
       //CSS transition class
-      e.target.classList.add("has-text");
+      (<HTMLElement>e.target).classList.add("has-text");
       //Preventing more clicks in cells that already play
-      e.target.classList.add("cell-played");
+      (<HTMLElement>e.target).classList.add("cell-played");
       //Toggle between X and O on click
       this.currentValue = this.currentValue === "X" ? "O" : "X";
       //Update player name on click
@@ -38,19 +46,18 @@ export class TicTacToe {
     }
   }
 
-  handleSubmit(e) {
-    // Prevent default behavior of form submit (Do not reload the page)
+  private handleSubmit(e: Event) {
     e.preventDefault();
     // Setting the players name's by getting the input value
     this.players = {
-      player1: this.playersForm.elements[0].value,
-      player2: this.playersForm.elements[1].value,
+      player1: (this.playersForm.elements[0] as HTMLInputElement).value,
+      player2: (this.playersForm.elements[1] as HTMLInputElement).value,
     };
     // Updating current players value
     this.updateCurrentPlayer();
   }
 
-  updateCurrentPlayer() {
+  private updateCurrentPlayer() {
     this.currentPlayer.textContent =
       this.currentValue === "X"
         ? `Its your turn ${this.players.player1}`

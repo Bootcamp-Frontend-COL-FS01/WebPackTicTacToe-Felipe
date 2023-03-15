@@ -9,6 +9,9 @@
   },
   "scripts": {
     "build": "webpack",
-    "dev": "webpack-dev-server --open"
+    "dev": "npx webpack serve"
+  },
+  "dependencies": {
+    "ts-loader": "^9.4.2"
   }
 }
